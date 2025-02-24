@@ -1,0 +1,1539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <title>Construction World</title>
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 100dvh;
+    background-image: url(backgh.jpg);
+    background-size: cover;
+    background-position: center;
+    padding: 10px;
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: rgb(7, 6, 6);
+    font-size: 1rem;
+}
+a:hover{
+    cursor: pointer;
+    color: orange;
+}
+header{
+    position: relative;
+    padding: 0 rem;
+}
+.navbar{
+    width: 100%;
+    height: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content:space-between ;
+}
+.toggle_button{
+    display: none;
+    color: black;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+.logo a{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.navbar .links{
+    display: flex;
+    gap: 2rem;
+}
+.navbar .toggle_button{
+  color: black;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: none;
+}
+.action_button{
+    background-color: orange;
+    color: black;
+    padding: 0.5rem 1rem;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+.action_button:hover{
+    scale: 1.1;
+    color: brown;
+}
+
+.extend{
+    display: none;
+    position: absolute;
+    right: 2rem;
+    top: 60px;
+    height: 0;
+    width: 300px;
+    background: rgba(22, 14, 14, 0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: height .2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.extend li{
+    padding: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.extend .action_button{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.extend.open{
+    height: 260px;
+
+}
+
+.container{
+    width: 360px;
+    height: 400px;
+    margin: 8% auto;
+    background: rgb(238, 223, 223);
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+}
+h1{
+    text-align: center;
+    margin-bottom: 40px;
+    color: black;
+}
+.container form{
+    width: 280px;
+    position: absolute;
+    top :100px;
+    left: 40px;
+    transition: 0.5s;
+}
+form input{
+    width: 100%;
+    padding: 10 px 5px;
+    margin: 5px 0;
+    border: 0;
+    border-bottom: 1px solid black;
+    outline: none;
+    background: transparent;
+}
+::placeholder{
+    color: rgb(91, 87, 84);
+}
+.btn-box{
+    width: 100%;
+    margin: 30px auto;
+    text-align: center;
+}
+form button{
+    width: 110px;
+    height: 35px;
+    margin: 0 10px;
+    background: linear-gradient(to right,#ff105f,#ffad06);
+    border-radius: 30px;
+    border: 0;
+    outline: none;
+    color: wheat;
+    cursor: pointer;
+}
+#form2{
+    left: 450px;
+}
+#form3{
+    left: 450px;
+}
+.steps{
+    width: 360px;
+    height: 40px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 -1px 5px -1px #000;
+    position: relative;
+}
+.steps1{
+    width: 120px;
+    text-align: center;
+    color: black;
+    position: relative;
+}
+#progress{
+    position: absolute;
+    height: 100%;
+    width: 120px;
+    background: linear-gradient(to right,#ff105f,#ffad06);
+    transition: 1s;
+}
+
+section {
+    padding: 5rem 10%;
+  }
+  
+  .heading {
+    margin-bottom: 3rem;
+    font-size: 3rem;
+    color: var(--black);
+    text-transform: capitalize;
+    padding-left: 1rem;
+    border-left: 1rem solid var(--yellow);
+  }
+  
+  .btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 1rem 3rem;
+    background: var(--black);
+    color: var(--white);
+    cursor: pointer;
+    font-size: 1.7rem;
+    text-transform: capitalize;
+    -webkit-transition: .2s linear;
+    transition: .2s linear;
+  }
+  
+  .btn:hover {
+    background: var(--yellow);
+    color: var(--black);
+  }
+  
+  @-webkit-keyframes fadeIn {
+    0% {
+      top: 50%;
+      opacity: 0;
+    }
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      top: 50%;
+      opacity: 0;
+    }
+  }
+  
+  .header {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    -webkit-box-shadow: var(--box-shadow);
+            box-shadow: var(--box-shadow);
+    padding: 1.5rem 10%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    z-index: 1000;
+    background: var(--white);
+  }
+  
+  
+  
+  .header .logo span {
+    color: var(--yellow);
+  }
+  
+  .header .navbar a {
+    font-size: 2rem;
+    color: var(--black);
+    text-transform: capitalize;
+    margin: 0 1rem;
+  }
+  
+  .header .navbar a:hover {
+    color: var(--yellow);
+  }
+  
+  .header .icons div {
+    height: 5rem;
+    width: 5rem;
+    line-height: 5rem;
+    font-size: 2rem;
+    background: var(--light-bg);
+    color: var(--black);
+    cursor: pointer;
+    text-align: center;
+    margin-left: .3rem;
+  }
+  
+  .header .icons div:hover {
+    background: var(--black);
+    color: var(--white);
+  }
+  
+  .header #menu-btn {
+    display: none;
+  }
+  
+  .header .search-form {
+    position: absolute;
+    top: 120%;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    width: 70rem;
+    background: var(--white);
+    -webkit-box-shadow: var(--box-shadow);
+            box-shadow: var(--box-shadow);
+    padding: 1rem;
+    display: none;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: 1rem;
+    -webkit-animation: fadeIn .2s linear;
+            animation: fadeIn .2s linear;
+  }
+  
+  .header .search-form.active {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  
+  .header .search-form input {
+    width: 100%;
+    padding: 1.2rem 1.4rem;
+    background: var(--light-bg);
+    font-size: 1.6rem;
+    color: var(--light-color);
+  }
+  
+  .header .search-form label {
+    font-size: 2.5rem;
+    color: var(--black);
+    cursor: pointer;
+    margin: 0 1rem;
+  }
+  
+  .header .search-form label:hover {
+    color: var(--yellow);
+  }
+  
+  .header .login-form {
+    position: absolute;
+    top: 120%;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    width: 40rem;
+    background: var(--white);
+    -webkit-box-shadow: var(--box-shadow);
+            box-shadow: var(--box-shadow);
+    padding: 2rem;
+    text-align: center;
+    -webkit-animation: fadeIn .2s linear;
+            animation: fadeIn .2s linear;
+    display: none;
+  }
+  
+  .header .login-form.active {
+    display: block;
+  }
+  
+  .header .login-form h3 {
+    font-size: 2.5rem;
+    color: var(--black);
+    text-transform: capitalize;
+    padding-bottom: 1rem;
+    text-transform: uppercase;
+  }
+  
+  .header .login-form .box {
+    width: 100%;
+    padding: 1.2rem 1.4rem;
+    background: var(--light-bg);
+    font-size: 1.6rem;
+    color: var(--light-color);
+    margin: .7rem 0;
+  }
+  
+  .header .login-form .flex {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: .5rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1rem;
+  }
+  
+  .header .login-form .flex label {
+    font-size: 1.5rem;
+    color: var(--light-color);
+    cursor: pointer;
+  }
+  
+  .header .login-form .flex a {
+    font-size: 1.5rem;
+    color: var(--light-color);
+    margin-left: auto;
+  }
+  
+  .header .login-form .flex a:hover {
+    color: var(--yellow);
+    text-decoration: underline;
+  }
+  
+  .header .login-form .btn {
+    width: 100%;
+  }
+  
+  .header .login-form p {
+    font-size: 1.5rem;
+    color: var(--light-color);
+    line-height: 2;
+    padding-top: 1.5rem;
+  }
+  
+  .header .login-form p a {
+    color: var(--yellow);
+  }
+  
+  .header .login-form p a:hover {
+    text-decoration: underline;
+  }
+  
+  .contact-info {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 35rem;
+    background: var(--white);
+    height: 100%;
+    text-align: center;
+    z-index: 1100;
+    padding: 0 2rem;
+    padding-top: 5rem;
+    display: none;
+  }
+  
+  .contact-info.active {
+    -webkit-box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.7);
+            box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.7);
+    display: block;
+  }
+  
+  .contact-info #close-contact-info {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    cursor: pointer;
+    font-size: 4rem;
+    color: var(--black);
+  }
+  
+  .contact-info #close-contact-info:hover {
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+  }
+  
+  .contact-info .info {
+    padding: 2rem 0;
+  }
+  
+  .contact-info .info i {
+    height: 5rem;
+    width: 5rem;
+    line-height: 5rem;
+    font-size: 2rem;
+    background: var(--light-bg);
+    color: var(--black);
+    cursor: pointer;
+    text-align: center;
+    margin-bottom: .5rem;
+  }
+  
+  .contact-info .info i:hover {
+    background: var(--black);
+    color: var(--white);
+  }
+  
+  .contact-info .info h3 {
+    font-size: 2rem;
+    color: var(--black);
+    text-transform: capitalize;
+    padding: 1rem 0;
+  }
+  
+  .contact-info .info p {
+    font-size: 1.5rem;
+    color: var(--light-color);
+    line-height: 2;
+  }
+  
+  .contact-info .share {
+    padding-top: 2rem;
+    border-top: var(--border);
+    margin-top: 1rem;
+  }
+  
+  .contact-info .share a {
+    height: 5rem;
+    width: 5rem;
+    line-height: 5rem;
+    font-size: 2rem;
+    background: var(--light-bg);
+    color: var(--black);
+    cursor: pointer;
+    text-align: center;
+    margin: 0 .3rem;
+  }
+  
+  .contact-info .share a:hover {
+    background: var(--black);
+    color: var(--white);
+  }
+  
+  .home {
+    padding: 0;
+  }
+  
+  .home .slide {
+    min-height: 60rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    position: relative;
+    background-size: cover !important;
+    background-position: center !important;
+  }
+  
+  .home .slide::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: -webkit-gradient(linear, left top, right top, from(var(--white)), to(transparent));
+    background: linear-gradient(45deg, var(--white), transparent);
+  }
+  
+  .home .slide .content {
+    width: 50rem;
+    position: relative;
+  }
+  
+  .home .slide .content h3 {
+    font-size: 6rem;
+    color: var(--black);
+    text-transform: capitalize;
+    text-transform: uppercase;
+  }
+  
+  .home .slide .content p {
+    font-size: 1.4rem;
+    color: var(--light-color);
+    line-height: 2;
+    padding: 1rem 0;
+  }
+  
+  .home .swiper-button-next,
+  .home .swiper-button-prev {
+    top: initial;
+    bottom: 0;
+    left: initial;
+    right: 0;
+    height: 7rem;
+    width: 7rem;
+    line-height: 7rem;
+    background: var(--white);
+  }
+  
+  .home .swiper-button-next:hover,
+  .home .swiper-button-prev:hover {
+    background: var(--yellow);
+  }
+  
+  .home .swiper-button-next::after,
+  .home .swiper-button-prev::after {
+    font-size: 2rem;
+    color: var(--black);
+  }
+  
+  .home .swiper-button-prev {
+    right: 7rem;
+  }
+  
+  .about .row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    gap: 3rem;
+  }
+  
+  .about .row .video {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 41rem;
+            flex: 1 1 41rem;
+  }
+  
+  .about .row .video video {
+    width: 100%;
+  }
+  
+  .about .row .content {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 41rem;
+            flex: 1 1 41rem;
+  }
+  
+  .about .row .content h3 {
+    font-size: 3.5rem;
+    color: var(--black);
+    text-transform: capitalize;
+  }
+  
+  .about .row .content p {
+    font-size: 1.5rem;
+    color: var(--light-color);
+    line-height: 2;
+    padding: 1rem 0;
+  }
+  
+  .about .box-container {
+    margin-top: 3rem;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (minmax(16rem, 1fr))[auto-fit];
+        grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: 2rem;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+  }
+  
+  .about .box-container .box {
+    text-align: center;
+    background: var(--light-bg);
+    padding: 3rem 2rem;
+  }
+  
+  .about .box-container .box h3 {
+    font-size: 4rem;
+    color: var(--black);
+    text-transform: capitalize;
+  }
+  
+  .about .box-container .box p {
+    font-size: 1.5rem;
+    color: var(--light-color);
+    line-height: 2;
+    padding-top: .5rem;
+  }
+  
+  .services {
+    background: var(--light-bg);
+  }
+  
+  .services .box-container {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (minmax(25rem, 1fr))[auto-fit];
+        grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: 2rem;
+  }
+  
+  .services .box-container .box {
+    text-align: center;
+    padding: 3rem;
+    background: var(--white);
+    -webkit-box-shadow: var(--box-shadow);
+            box-shadow: var(--box-shadow);
+    border: var(--border);
+  }
+  
+  .services .box-container .box:hover img {
+    -webkit-transform: translateY(-1rem);
+            transform: translateY(-1rem);
+  }
+  
+  .services .box-container .box img {
+    height: 7rem;
+    margin-bottom: .5rem;
+    -webkit-transition: .2s linear;
+    transition: .2s linear;
+  }
+  
+  .services .box-container .box h3 {
+    font-size: 1.7rem;
+    color: var(--black);
+    text-transform: capitalize;
+    padding: 1rem 0;
+  }
+  
+  .services .box-container .box p {
+    font-size: 1.4rem;
+    color: var(--light-color);
+    line-height: 2;
+  }
+  
+  .projects {
+    background: var(--black);
+  }
+  
+  .projects .heading {
+    color: var(--white);
+  }
+  
+  .projects .box-container {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (minmax(30rem, 1fr))[auto-fit];
+        grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 2rem;
+  }
+  
+  .projects .box-container .box {
+    cursor: initial;
+  }
+  
+  .projects .box-container .box:hover .image img {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+  
+  .projects .box-container .box .image {
+    height: 40rem;
+    overflow: hidden;
+  }
+  
+  .projects .box-container .box .image img {
+    height: 100%;
+    width: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    -webkit-transition: .2s linear;
+    transition: .2s linear;
+  }
+  
+  .projects .box-container .box .content {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    background: var(--white);
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  
+  .projects .box-container .box .content .info {
+    padding: 1rem 2rem;
+  }
+  
+  .projects .box-container .box .content .info h3 {
+    font-size: 1.7rem;
+    color: var(--black);
+    text-transform: capitalize;
+  }
+  
+  .projects .box-container .box .content .info p {
+    font-size: 1.5rem;
+    color: var(--light-color);
+    line-height: 2;
+  }
+  
+  .projects .box-container .box .content i {
+    width: 7.5rem;
+    font-size: 3rem;
+    background: var(--yellow);
+    color: var(--white);
+    cursor: pointer;
+    text-align: center;
+    line-height: 7.5rem;
+  }
+  
+  .reviews .slide p {
+    padding: 1.5rem;
+    background: var(--light-bg);
+    position: relative;
+    margin-bottom: 3rem;
+    font-size: 1.4rem;
+    color: var(--light-color);
+    line-height: 2;
+  }
+  
+  .reviews .slide p::before {
+    content: '';
+    position: absolute;
+    bottom: -1rem;
+    left: 2rem;
+    height: 2rem;
+    width: 2rem;
+    background: var(--light-bg);
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+  }
+  
+  .reviews .slide .user {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: 1.5rem;
+  }
+  
+  .reviews .slide .user img {
+    height: 7rem;
+    width: 7rem;
+  }
+  
+  .reviews .slide .user h3 {
+    font-size: 2rem;
+    color: var(--black);
+    text-transform: capitalize;
+  }
+  
+  .reviews .slide .user .stars {
+    padding-top: .5rem;
+  }
+  
+  .reviews .slide .user .stars i {
+    font-size: 1.4rem;
+    color: var(--yellow);
+  }
+  
+  .pricing {
+    background: var(--light-bg);
+  }
+  
+  .pricing .box-container {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (minmax(30rem, 1fr))[auto-fit];
+        grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 2rem;
+  }
+  
+  .pricing .box-container .box {
+    background: var(--white);
+    text-align: center;
+    padding: 2rem;
+    border: var(--border);
+    -webkit-box-shadow: var(--box-shadow);
+            box-shadow: var(--box-shadow);
+  }
+  
+  .pricing .box-container .box i {
+    font-size: 3rem;
+    height: 7rem;
+    width: 7rem;
+    line-height: 7rem;
+    border-radius: 50%;
+    margin-bottom: 2rem;
+    background: var(--yellow);
+    color: var(--black);
+  }
+  
+  .pricing .box-container .box h3 {
+    font-size: 2rem;
+    color: var(--black);
+    text-transform: capitalize;
+    font-weight: normal;
+  }
+  
+  .pricing .box-container .box .price {
+    padding: 1rem 0;
+    font-size: 5rem;
+    color: var(--black);
+    text-transform: capitalize;
+  }
+  
+  .pricing .box-container .box .price span {
+    font-size: 2rem;
+  }
+  
+  .pricing .box-container .box .list {
+    padding: 1rem 0;
+  }
+  
+  .pricing .box-container .box .list p {
+    padding: 1rem 0;
+    font-size: 1.4rem;
+    color: var(--light-color);
+    line-height: 2;
+  }
+  
+  .contact {
+    background: var(--black);
+  }
+  
+  .contact .heading {
+    color: var(--white);
+  }
+  
+  .contact .row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    gap: 2rem;
+  }
+  
+  .contact .row .map {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 41rem;
+            flex: 1 1 41rem;
+    width: 100%;
+  }
+  
+  .contact .row form {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 41rem;
+            flex: 1 1 41rem;
+    background: var(--white);
+    padding: 2rem;
+  }
+  
+  .contact .row form h3 {
+    font-size: 2.5rem;
+    color: var(--black);
+    text-transform: capitalize;
+  }
+  
+  .contact .row form .box {
+    margin: .7rem 0;
+    width: 100%;
+    padding: 1.5rem 0;
+    border-bottom: var(--border);
+    font-size: 1.6rem;
+    color: var(--light-color);
+  }
+  
+  .contact .row form .box:focus {
+    border-color: var(--yellow);
+  }
+  
+  .contact .row form textarea {
+    height: 15rem;
+    resize: none;
+  }
+  
+  .blogs {
+    background: var(--light-bg);
+  }
+  
+  .blogs .slide {
+    text-align: center;
+  }
+  
+  .blogs .slide:hover .image img {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+  
+  .blogs .slide .image {
+    height: 25rem;
+    width: 90%;
+    overflow: hidden;
+    margin: 0 auto;
+    margin-bottom: -3rem;
+  }
+  
+  .blogs .slide .image img {
+    height: 100%;
+    width: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    -webkit-transition: .2s linear;
+    transition: .2s linear;
+  }
+  
+  .blogs .slide .content {
+    padding: 2rem;
+    padding-top: 5rem;
+    background: var(--white);
+    -webkit-box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.2);
+            box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.2);
+  }
+
+  table { 
+    width: 100%; 
+    max-width: 600px; 
+    margin: 0 auto; 
+    border-collapse: collapse; 
+    } 
+    th, td { 
+    padding: 10px; 
+    text-align: left; 
+    } 
+    th { 
+    background-color: #3498db; 
+    color: #fff; 
+    font-size: 18px; 
+    } 
+    td { 
+    background-color: #ecf0f1; 
+    } 
+    label { 
+    display: block; 
+    margin-bottom: 5px; 
+    font-size: 16px; 
+    color: #2c3e50; 
+    } 
+    input[type="text"], 
+    input[type="email"],input[type="password"], 
+    select, 
+    textarea { 
+    width: 100%; 
+    padding: 8px; 
+    border: 1px solid #bdc3c7; 
+    border-radius: 4px; 
+    font-size: 14px; 
+    } 
+    input[type="submit"] { 
+    background-color: #2ecc71; 
+    color: #fff; 
+    border: none; 
+    padding: 10px 20px; 
+    border-radius: 4px; 
+    font-size: 16px; 
+    cursor: pointer; 
+    } 
+    input[type="submit"]:hover { 
+    background-color: #27ae60; 
+    } 
+    .form-container { 
+    background-color: #fff; 
+    padding: 20px; 
+    border-radius: 8px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+    } 
+    .form-title { 
+    font-size: 24px; 
+    color: #2c3e50; 
+    margin-bottom: 20px; 
+    } 
+  
+  .blogs .slide .content h3 {
+    font-size: 2rem;
+    color: var(--black);
+    text-transform: capitalize;
+  }
+  
+  .blogs .slide .content p {
+    padding: 1rem 0;
+    font-size: 1.4rem;
+    color: var(--light-color);
+    line-height: 2;
+  }
+  
+  .logo-container {
+    text-align: center;
+  }
+  
+  .logo-container img {
+    height: 10rem;
+    pointer-events: none;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+  }
+  
+  .footer {
+    text-align: center;
+    background-color: #ff105f;
+  }
+  
+  .footer .links .btn {
+    margin: .5rem;
+  }
+  
+  .footer .credit {
+    font-size: 2rem;
+    color: orange;
+    text-transform: capitalize;
+    margin-top: 2rem;
+    padding-top: 1rem;
+  }
+  
+  .footer .credit span {
+    color: var(--yellow);
+  }
+  
+@media (max-width: 768px) {
+  .navbar .links {
+    display: none;
+    flex-direction: column;
+    background-color: white;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 100%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .navbar .links.active {
+    display: flex;
+  }
+
+  .toggle_button {
+    display: block;
+  }
+
+  .home .slide .content h3 {
+    font-size: 3rem;
+  }
+
+  .home .slide .content p {
+    font-size: 1.2rem;
+  }
+
+  .about .row {
+    flex-direction: column;
+  }
+
+  .about .row .content h3 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .navbar .links {
+    gap: 1rem;
+  }
+
+  .home .slide .content h3 {
+    font-size: 4rem;
+  }
+
+  .about .row {
+    gap: 2rem;
+  }
+}
+
+@media (min-width: 1025px) {
+  .navbar .links {
+    display: flex;
+  }
+
+  .toggle_button {
+    display: none;
+  }
+}
+@media (max-width: 992px){
+  .navbar .links,
+  .navbar .action_button{
+    display: none;
+  }
+  .navbar .toggle_button{
+    display: block;
+  }
+  .extend{
+    display: block;
+  }
+}
+@media (max-width: 576px){
+  .extend{
+    position: relative;
+    left: 1rem;
+    width: unset;
+  }
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo"><a href="#">Construction World</a></div>
+            <ul class="links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#aboutus">about us</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#projectsection">Projects</a></li>
+                <li><a href="#contact">Contact us</a></li>
+            </ul>
+            <a href="validationform.html" class="action_button">validationform</a>
+            <div class="toggle_button">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+        <div class="extend">
+            <li><a href="#home">Home</a></li>
+                <li><a href="#aboutus">About us</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#projectsection">Projects</a></li>
+                <li><a href="#contact">Contact us</a></li>
+                <li><a href="" class="action_button">Login</a></li>
+            </li>
+        </div>
+    </header>
+    <hr>
+    <section class="home" id="home">
+
+        <div class="swiper home-slider">
+     
+           <div class="swiper-wrapper">
+     
+              <section class="swiper-slide slide" style="background: url(OIP\ \(1\).jpeg) no-repeat;">
+                 <div class="content">
+                    <h3>we provide best service</h3>
+                    <p>we construct with maintaining quality and efficiency</p>
+                    <a href="#about" class="btn">get started</a>
+                 </div>
+              </section>
+     
+              <section class="swiper-slide slide" style="background: url(OIP\ \(2\).jpeg) no-repeat;">
+                 <div class="content">
+                    <h3>making dream come to life</h3>
+                    <p>we construct with maintaining quality and efficiency</p>
+                    <a href="#about" class="btn">get started</a>
+                 </div>
+              </section>
+     
+              <section class="swiper-slide slide" style="background: url(OIP\ \(3\).jpeg) no-repeat;">
+                 <div class="content">
+                    <h3>from concept to creation</h3>
+                    <p>we construct with maintaining quality and efficiency</p>
+                    <a href="#about" class="btn">get started</a>
+                 </div>
+              </section>
+     
+           </div>
+     
+           <div class="swiper-button-next"></div>
+           <div class="swiper-button-prev"></div>
+     
+        </div>
+     
+     </section>
+     <h1 >About us</h1><img src="https://th.bing.com/th/id/OIP.bmd0mxsQCmXyvphW4BkxdQHaDt?rs=1&pid=ImgDetMain" alt="" height="500px" width="400px">
+     <section class="aboutus" id="aboutus">
+        <section class="projsection" id="projct" style="width: 100%; padding: 60px 0; background-color: #eef2f3; display: flex; justify-content: center; align-items: center;">
+    
+            <div class="projecard" style="position: relative; width: 80%; max-width: 900px; height: 400px; overflow: hidden; border-radius: 10px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);">
+                
+                <img src="https://th.bing.com/th/id/OIP.b2dngexWWQhnR42xhloeFwHaE8?rs=1&pid=ImgDetMain" alt="projectImage" style="width: 100%; height: 100%; object-fit: cover;">
+        
+                <div class="projcontent" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px;">
+                    <h2 style="margin-bottom: 10px; font-size: 2rem;">Leaders In Quality Constructions And Infracture</h2>
+                    <h2 style="margin-bottom: 10px; font-size: 2rem;">We build Your Dreams</h2>
+                
+                    <p style="font-size: 1.2rem; max-width: 600px;">A beautifully designed commercial office space with state-of-the-art interiors and energy-efficient construction.</p>
+                    <a href="#" style="display: inline-block; margin-top: 15px; padding: 10px 20px; background: #007bff; color: white; text-decoration: none; border-radius: 5px;">View Details</a>
+                </div>
+                
+            </div>
+        
+        </section>
+        
+        <div class="box-container" style="display: flex;  height: 100px;width: 100%;background-color: gray;padding-left: 200px;">
+    
+            <div class="box" style="width: 300px;height: 100px;align-items: center;text-align: center;padding-top: 30px;border: 2px solid black;">
+               <h3>15+</h3>
+               <p>years of experience</p>
+            </div>
+      
+            <div class="box" style="width: 300px;height: 100px;align-items: center;text-align: center;padding-top: 30px;border: 2px solid black;">
+               <h3>1100+</h3>
+               <p>project have completed</p>
+            </div>
+      
+           
+      
+            <div class="box" style="width: 300px;height: 100px;align-items: center;text-align: center;padding-top: 30px;border: 2px solid black;">
+               <h3>250+</h3>
+               <p>active workers</p>
+            </div>
+            <div class="box" style="width: 300px;height: 100px;align-items: center;text-align: center;padding-top: 30px;border: 2px solid black;">
+                <h3>670+</h3>
+                <p>satiesfied clients</p>
+             </div>
+         </div>
+     </section>
+
+
+
+     <h1 style="text-align: center;size: 30px;margin-top: 10px;">Our Great projects</h1>
+     <section class="projectsection" id="projectsection" >
+         <div class="projectimage" style="flex: 1;">
+             <img src="https://th.bing.com/th/id/OIP.CtrBpDtVWfefRZnfAB-efgHaE7?w=257&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="error" style="width: 100%; height: 300px; object-fit: cover;">
+         </div>
+ 
+         <div class="projectcard" style="display: flex; align-items: center; max-width: 900px; background: white; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); border-radius: 10px; overflow: hidden;">
+             
+             <div class="projectimage" style="flex: 1;">
+                 <img src="https://th.bing.com/th/id/OIP.QYae4mqmnYkLcXoWAVm5HwAAAA?w=201&h=141&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="error" style="width: 100%; height: 100%; object-fit: cover;">
+             </div>
+     
+             <div class="project-content" style="flex: 1; padding: 30px;">
+                 <h2 id="se">The Tunga Anicut Dam</h2>
+                 <p style="color: gray; line-height: 1.6;"> The Tunga Anicut Dam is built across the River Tunga. Located at a distance of 12 km from Shimoga, the Tunga Anicut Dam lies within the premises of Shettihalli Wildlife Sanctuary. The dam stands surrounded by lush green paddy fields and arecanut plantations and is a sight to behold.</p>
+                 <a href="#" style="display: inline-block; margin-top: 15px; padding: 10px 20px; background: #007bff; color: white; text-decoration: none; border-radius: 5px;">View Details</a>
+             </div>
+     
+         </div>
+         
+     </section>
+     <section class="projectsection" id="projectsa" >
+         <div class="projectimage" style="flex: 1;">
+             <img src="https://images.adsttc.com/media/images/649e/3922/5921/182f/2f89/1fe5/medium_jpg/house-in-holsbeek-parol-architecten_1.jpg?1688090935" alt="error" style="width: 100%; height: 350px; object-fit: cover;">
+         </div>
+         <div class="projectcard" style="display: flex; align-items: center; max-width: 900px; background: white; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); border-radius: 10px; overflow: hidden;">
+             
+            
+             <div class="projectimage" style="flex: 1;">
+                 <img src="https://th.bing.com/th/id/OIP.olTKlI-WbOyPcmfYQ6i0SAHaLH?pid=ImgDet&w=474&h=711&rs=1" alt="error" style="width: 100%; height: 100%; object-fit: cover;">
+             </div>
+             <div class="projectimage" style="flex: 1;">
+                 <img src="https://th.bing.com/th/id/OIP.tNXImpfcKdPaqCQU9BhJ_AHaLH?pid=ImgDet&w=474&h=711&rs=1" alt="error" style="width: 100%; height: 100%; object-fit: cover;">
+             </div>
+             <div class="project-content" style="flex: 1; padding: 30px;">
+                 <h2 id="se">House in Holsbeek / Parol architecten
+                 </h2>
+                 <p style="color: gray; line-height: 1.6;">Text description provided by the architects. A new family home is located on a sloped terrain in Holsbeek, Belgium on the edge of the forest with respect for its context, the surrounding trees, its orientation, and the different viewpoints. The building volume is pushed into the terrain with the entrance, bedrooms, and bathroom located on the ground floor to keep the rooms cool in warm weather conditions. But they still have a lot of daylight and views of the forest due to the positioning of the windows.</p>
+                 <a href="#" style="display: inline-block; margin-top: 15px; padding: 10px 20px; background: #007bff; color: white; text-decoration: none; border-radius: 5px;">View Details</a>
+             </div>
+     
+         </div>
+         
+     </section>
+     <section class="projectsection" id="projectsa" > <div class="projectimage" style="flex: 1;">
+         <img src="https://th.bing.com/th/id/OIP.5XMHqd6s6T-stHCt41j6kgHaD3?w=800&h=418&rs=1&pid=ImgDetMain" alt="error" style="width: 100%; height: 100%; object-fit: cover;">
+     </div>
+     
+         <div class="projectcard" style="display: flex; align-items: center; max-width: 900px; background: white; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); border-radius: 10px; overflow: hidden;">
+             
+            
+             <div class="projectimage" style="flex: 1;">
+                 <img src="https://th.bing.com/th/id/OIP.N8Dh0HAQIGb00gEYA1cH8wHaE8?w=222&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="error" style="width: 100%; height: 100%; object-fit: cover;">
+             </div>
+             <div class="projectimag" style="flex: 1;">
+                 <img src="https://th.bing.com/th/id/OIP.meN-wjGgjWHVz-WnvfinogHaDU?w=294&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="error" style="width: 100%; height: 100%; object-fit: cover;">
+             </div>
+             <div class="project-content" style="flex: 1; padding: 30px;">
+                 <h2 id="se">A four-bedroom modern residence</h2>
+                 <p style="color: gray; line-height: 1.6;"> A four-bedroom modern residence in a small urban plot, this is a space efficient design to capture the best features of the site. The design opens up in the first floor, to create a panoramic view from the upper living and balcony while bringing in daylight and creating natural ventilation in the entire house. A striking bright elevation slowly emerges during the access from front road.A four-bedroom modern residence in a small urban plot in Nagarbhavi Bangalore, with a space-efficient design to capture the best features of the site. The design opens up on the first floor, to create a panoramic view from the upper living and balcony while bringing in daylight and creating natural ventilation in the entire house. The interior designers put the effort for maximum space utilization to make the interior of the residence look spacious with the more windows and double-height visitors room. The VR experience cleared a bunch of design confusion while the tracker could ensure that the project stayed on track without budget overshoots or quality snags.</p>
+                 <a href="#" style="display: inline-block; margin-top: 15px; padding: 10px 20px; background: #007bff; color: white; text-decoration: none; border-radius: 5px;">View Details</a>
+             </div>
+     
+         </div>
+         
+     </section>
+    <section class="services" id="services" style="text-align: center; padding: 50px 0; background-color: #f5f5f5;">
+
+        <h1 class="heading" style="font-size: 2rem; margin-bottom: 20px; text-transform: uppercase;">Our Services</h1>
+     
+        <div class="services-container" style="display: flex; overflow-x: auto; gap: 50px; padding: 20px; scrollbar-width: none; -ms-overflow-style: none;">
+           
+           <div class="service-item" style="min-width: 250px;">
+              <img src="https://www.alamy.com/aggregator-api/download?url=https://c8.alamy.com/comp/2J56T66/cartoon-scene-of-building-house-construction-site-illustration-2J56T66.jpg" alt="" style="width: 100px; height: 100px;">
+              <h3>Building Construction</h3>
+              <p>we construct with maintaining quality and efficiency</p>
+            </div>
+     
+           <div class="service-item" style="min-width: 250px;">
+              <img src="https://th.bing.com/th/id/R.74da1c3fcd1eda164a214a67fa973190?rik=k%2fY59Nfiht0kfw&riu=http%3a%2f%2fc8.alamy.com%2fcomp%2fJ17R0C%2fa-vector-illustration-of-workers-working-on-home-renovation-J17R0C.jpg&ehk=St8xvc4hvBi%2bSb2%2b6gJBzBg92Fj08xdLJ5nwamlyv8E%3d&risl=&pid=ImgRaw&r=0" alt="" style="width: 100px; height: 100px;">
+              <h3>House Renovation</h3>
+              <p>we construct with maintaining quality and efficiency</p>
+            </div>
+     
+           <div class="service-item" style="min-width: 250px;">
+              <img src="https://th.bing.com/th/id/OIP.JqApBdwDyHnKUj-gRVNiLAHaFl?w=237&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="" style="width: 100px; height: 100px;">
+              <h3>Architecture Design</h3>
+              <p>we construct with maintaining quality and efficiency</p>
+            </div>
+     
+           <div class="service-item" style="min-width: 250px;">
+              <img src="https://th.bing.com/th/id/OIP.roslWaykyOvQC5FznNBMxwHaEM?w=308&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="" style="width: 100px; height: 100px;">
+              <h3>Material Supply</h3>
+              <p>we construct with maintaining quality and efficiency</p>
+            </div>
+     
+           <div class="service-item" style="min-width: 250px;">
+              <img src="https://cdn.vectorstock.com/i/preview-1x/11/86/cartoon-color-character-person-male-builders-vector-33821186.jpg" alt="" style="width: 100px; height: 100px;">
+              <h3>Construction Consultant</h3>
+              <p>we construct with maintaining quality and efficiency</p>
+            </div>
+     
+           <div class="service-item" style="min-width: 250px;">
+              <img src="https://thumbs.dreamstime.com/z/family-home-interior-design-concept-flat-furniture-parents-children-rooms-kitchen-bathroom-cartoon-style-vector-68305886.jpg" alt="" style="width: 100px; height: 100px;">
+              <h3>Interior Design</h3>
+              <p>we construct with maintaining quality and efficiency</p>
+            </div>
+     
+           <div class="service-item" style="min-width: 250px;">
+              <img src="https://th.bing.com/th/id/OIP.lZrhh35zcM9wiTq4svlPWwAAAA?rs=1&pid=ImgDetMain" alt="" style="width: 100px; height: 100px;">
+              <h3>Building Maintenance</h3>
+              <p>we construct with maintaining quality and efficiency</p>
+            </div>
+     
+           <div class="service-item" style="min-width: 250px;">
+              <img src="https://static.vecteezy.com/system/resources/previews/021/855/912/non_2x/renovation-cartoon-scene-vector.jpg" alt="" style="width: 100px; height: 100px;">
+              <h3>Building Renovation</h3>
+              <p>we construct with maintaining quality and efficiency</p>
+            </div>
+     
+        </div>
+     
+     </section>
+     
+     <h1 style="text-align: center;margin-top: 20px;">contact us through</h1>
+
+    <section class="contact" id="contact" style="width: 100%; padding: 60px 0; background-color: #eef2f3; display: flex; justify-content: center; align-items: center;">
+
+        <div class="projecard" style="position: relative; width: 80%; max-width: 900px; height: 400px; overflow: hidden; border-radius: 10px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);">
+            
+
+            <div style="padding: 60px;padding-bottom: 20px;"><h1>PJ Constructions</h1></div>
+            <div style="padding: 60px;padding-bottom: 20px;"><h2>phone number : (+91)9273777388</h2></div>
+            <div style="padding: 60px;padding-bottom: 20px;"><h2>gmail : pj65@gmail.com</h2></div>
+            <div class="projcontent" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px;">
+                
+            </div>
+            
+        </div>
+        <div class="form-container"> 
+            <h1 class="form-title">CONTACT BY FILLING THIS FORM</h1> 
+            <form action="#" method="post"> 
+            <table> 
+            <tr> 
+            <th colspan="2">GIVE DETAILS WE WILL REACH YOU</th> 
+            </tr> 
+            <tr> 
+            <td><label for="first-name">First Name:</label></td> 
+            <td><input type="text" id="first-name" name="first-name" required></td> 
+            </tr> 
+            <tr> 
+            <td><label for="last-name">Last Name:</label></td> 
+            <td><input type="text" id="last-name" name="last-name" required></td> 
+</tr> 
+<tr> 
+<td><label for="email">Email:</label></td> 
+<td><input type="email" id="email" name="email" required></td> 
+</tr> 
+<tr> 
+<td><label for="password">Password:</label></td> 
+<td><input type="password" id="password" name="password" required></td> 
+</tr> 
+<tr> 
+<td><label for="gender">Gender:</label></td> 
+<td> 
+<select id="gender" name="gender"> 
+<option value="male">Male</option> 
+<option value="female">Female</option> 
+<option value="other">Other</option> 
+</select> 
+</td> 
+</tr> 
+<tr> 
+<td><label for="bio">Enter the details:</label></td> 
+<td><textarea id="bio" name="bio" rows="4"></textarea></td> 
+</tr> 
+<tr> 
+<td colspan="2"> 
+<input type="submit" value="submit the details for contact"> 
+</td> 
+</tr> 
+</table> 
+</form> 
+</div> 
+    </section>
+
+
+
+     <section class="footer" style="background-color: rgb(184, 217, 241);height: 300px;">
+        
+        
+            <div class="credit"> created by <span>Prathap</span></div>
+            <div style="padding: 0%;margin-left: 0;"><h1>PJ Constructions</h1></div>
+            <div><h2>phone number : (+91)9273777388</h2></div>
+            <div><h2>gmail : pj65@gmail.com</h2></div>
+
+     </section>
+     <script>
+        const toggle_Button = document.querySelector('.toggle_button')
+        const toggle_buttonicon = document.querySelector('.toggle_button i')
+        const Extend = document.querySelector('.extend')
+
+        toggle_Button.onclick = function(){
+            Extend.classList.toggle('open')
+            const isOpen = Extend.classList.contains('open')
+            toggle_buttonicon.classList = isOpen
+                ? 'fa-solid fa-xmark'
+                : 'fa-solid fa-bars'
+        }
+
+        var form1 = document.getElementById("form1");
+        var form2 = document.getElementById("form2");
+        var form3 = document.getElementById("form3");
+
+        var next1 = document.getElementById("next1");
+        var next2 = document.getElementById("next2");
+
+        var back1 = document.getElementById("back1");
+        var back2 = document.getElementById("back2");
+        
+        var progress = document.getElementById("progress");
+
+
+        next1.onclick = function(){
+            form1.style.left="-450px";
+            form2.style.left="40px";
+            progress.style.width = "240px";
+        }
+        
+        back1.onclick = function(){
+            form1.style.left="40px";
+            form2.style.left="-450px";
+            progress.style.width = "120px";
+
+
+        }
+        next2.onclick = function(){
+            form2.style.left="-450px";
+            form3.style.left="40px";
+            progress.style.width = "360px";
+
+        }
+        back2.onclick = function(){
+            form2.style.left="40px";
+            form3.style.left="-450px";
+            progress.style.width = "240px";
+
+        }
+    </script>
+    
+</body>
+</html>
